@@ -4,32 +4,11 @@
       "collectionGroup": "properties",
       "queryScope": "COLLECTION",
       "fields": [
-        { "fieldPath": "status", "mode": "IN" },
+        { "fieldPath": "status", "order": "ASCENDING" },
         { "fieldPath": "updated", "order": "DESCENDING" },
         { "fieldPath": "__name__", "order": "DESCENDING" }
       ]
     }
   ],
-  "fieldOverrides": [
-    {
-      "collectionGroup": "properties",
-      "fieldPath": "price",
-      "indexes": [
-        {
-          "order": "ASCENDING",
-          "queryScope": "COLLECTION"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "properties",
-      "fieldPath": "bedrooms",
-      "indexes": [
-        {
-          "order": "ASCENDING",
-          "queryScope": "COLLECTION"
-        }
-      ]
-    }
-  ]
+  "fieldOverrides": []
 }
