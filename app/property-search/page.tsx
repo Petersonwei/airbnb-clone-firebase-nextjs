@@ -13,6 +13,7 @@ import { getUserFavourites } from "@/data/favourites";
 import { cookies } from "next/headers";
 import { auth } from "@/firebase/server";
 import { DecodedIdToken } from "firebase-admin/auth";
+import { UserFavourites } from "@/types/favourites";
 
 export default async function PropertySearch({
   searchParams,
@@ -44,7 +45,7 @@ export default async function PropertySearch({
     },
   });
 
-  let userFavourites = {};
+  let userFavourites: UserFavourites = {};
   try {
     userFavourites = await getUserFavourites();
   } catch (error) {
