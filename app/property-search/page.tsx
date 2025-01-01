@@ -44,7 +44,12 @@ export default async function PropertySearch({
     },
   });
 
-  const userFavourites = await getUserFavourites();
+  let userFavourites = {};
+  try {
+    userFavourites = await getUserFavourites();
+  } catch (error) {
+    console.error('Error fetching favorites:', error);
+  }
 
   console.log({ userFavourites });
 

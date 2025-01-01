@@ -3,24 +3,23 @@ import { cookies } from "next/headers";
 import "server-only";
 
 export const getUserFavourites = async () => {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("firebaseAuthToken")?.value;
+  try {
+    const cookieStore = await cookies();
+    const token = cookieStore.get("firebaseAuthToken")?.value;
 
-  if (!token) {
+    if (!token) {
+      return {};
+    }
+
+    const verifiedToken = await auth.verifyIdToken(token);
+    const favouritesSnapshot = await firestore
+      .collection("favourites")
+      .doc(verifiedToken.uid)
+      .get();
+
+    return favouritesSnapshot.data() || {};
+  } catch (error) {
+    console.error('Error getting user favourites:', error);
     return {};
   }
-
-  const verifiedToken = await auth.verifyIdToken(token);
-
-  if (!verifiedToken) {
-    return {};
-  }
-
-  const favouritesSnapshot = await firestore
-    .collection("favourites")
-    .doc(verifiedToken.uid)
-    .get();
-
-  const favouritesData = favouritesSnapshot.data();
-  return favouritesData || {};
 };
