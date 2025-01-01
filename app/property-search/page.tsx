@@ -46,20 +46,24 @@ export default async function PropertySearch({
   });
 
   let userFavourites: UserFavourites = {};
+  let verifiedToken: DecodedIdToken | null = null;
+
   try {
-    userFavourites = await getUserFavourites();
+    const cookieStore = await cookies();
+    const token = cookieStore.get("firebaseAuthToken")?.value;
+    
+    if (token) {
+      try {
+        verifiedToken = await auth.verifyIdToken(token);
+        userFavourites = await getUserFavourites();
+      } catch (authError) {
+        console.error('Auth verification error:', authError);
+        // Don't throw, just continue with empty favorites
+      }
+    }
   } catch (error) {
-    console.error('Error fetching favorites:', error);
-  }
-
-  console.log({ userFavourites });
-
-  const cookieStore = await cookies();
-  const token = cookieStore.get("firebaseAuthToken")?.value;
-  let verifiedToken: DecodedIdToken | null;
-
-  if (token) {
-    verifiedToken = await auth.verifyIdToken(token);
+    console.error('Error in authentication:', error);
+    throw new Error('Failed to authenticate user');
   }
 
   return (
