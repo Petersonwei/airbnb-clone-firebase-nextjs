@@ -4,13 +4,13 @@ A modern real estate platform built with Next.js and Firebase, featuring propert
 
 ## Features
 
-- **Property Management** - Comprehensive property listing system with search and filtering
-- **User Authentication** - Secure Firebase-based authentication with role management
-- **Admin Dashboard** - Protected admin interface for property and user management
-- **Advanced Search** - Rich search functionality with multiple filters
-- **Responsive Design** - Mobile-first approach with modern UI components
-- **Image Management** - Secure image upload and optimization
-- **Real-time Updates** - Live data synchronization where applicable
+- **Property Management:** Comprehensive property listing system with search and filtering.
+- **User Authentication:** Secure Firebase-based authentication with role management.
+- **Admin Dashboard:** Protected admin interface for property and user management.
+- **Advanced Search:** Rich search functionality with multiple filters.
+- **Responsive Design:** Mobile-first approach with modern UI components.
+- **Image Management:** Secure image upload and optimization.
+- **Real-time Updates:** Live data synchronization where applicable.
 
 ## Tech Stack
 
@@ -31,35 +31,50 @@ A modern real estate platform built with Next.js and Firebase, featuring propert
 ### Local Development Setup
 
 1. Clone the repository:
-```bash
-git clone https://github.com/Petersonwei/airbnb-clone-firebase-nextjs
-cd fire-homes
-```
+   ```bash
+   git clone https://github.com/Petersonwei/airbnb-clone-firebase-nextjs
+   cd fire-homes
+   ```
 
 2. Install dependencies:
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 3. Set up environment variables in `.env.local`:
-```plaintext
-NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
-FIREBASE_PRIVATE_KEY=your_private_key
-FIREBASE_CLIENT_EMAIL=your_client_email
-FIREBASE_CLIENT_ID=your_client_id
-FIREBASE_PRIVATE_KEY_ID=your_private_key_id
-FIREBASE_CLIENT_X509_CERT_URL=your_cert_url
-```
+
+   #### Firebase Configuration Values
+   These keys are used to configure Firebase services for the application:
+
+   - **`FIREBASE_API_KEY`:** The API key for the Firebase project.
+   - **`FIREBASE_AUTH_DOMAIN`:** The authentication domain for Firebase Auth.
+   - **`FIREBASE_PROJECT_ID`:** The unique identifier for the Firebase project.
+   - **`FIREBASE_STORAGE_BUCKET`:** The storage bucket URL for Firebase.
+   - **`FIREBASE_MESSAGING_SENDER_ID`:** The sender ID for Firebase Cloud Messaging.
+   - **`FIREBASE_APP_ID`:** The unique identifier for the Firebase app.
+
+   #### Firebase Admin SDK Configuration
+   These keys are required for Firebase Admin SDK to perform server-side actions:
+
+   - **`FIREBASE_PRIVATE_KEY_ID`:** The ID of the private key for Firebase Admin SDK.
+   - **`FIREBASE_PRIVATE_KEY`:** The private key for Firebase Admin SDK (formatted as a PEM file).
+   - **`FIREBASE_CLIENT_EMAIL`:** The client email associated with Firebase Admin SDK.
+   - **`FIREBASE_CLIENT_ID`:** The client ID for Firebase Admin SDK.
+
+   #### Public Firebase Configuration (Next.js)
+   These keys are accessible on the client side and used for integrating Firebase with a Next.js application:
+
+   - **`NEXT_PUBLIC_FIREBASE_API_KEY`:** Public API key for Firebase.
+   - **`NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN`:** Public authentication domain.
+   - **`NEXT_PUBLIC_FIREBASE_PROJECT_ID`:** Public Firebase project ID.
+   - **`NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET`:** Public storage bucket URL.
+   - **`NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`:** Public messaging sender ID.
+   - **`NEXT_PUBLIC_FIREBASE_APP_ID`:** Public app identifier.
 
 4. Start the development server:
-```bash
-npm run dev
-```
+   ```bash
+   npm run dev
+   ```
 
 ## Project Structure
 
