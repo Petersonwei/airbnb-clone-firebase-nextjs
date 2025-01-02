@@ -40,7 +40,7 @@ export default function Home() {
             <SearchIcon className="h-12 w-12 text-blue-500 mb-4" />
             <h3 className="text-xl font-semibold mb-2">Easy Search</h3>
             <p className="text-gray-600">
-              Find exactly what you're looking for with our advanced search filters
+              Find exactly what you&apos;re looking for with our advanced search filters
             </p>
           </div>
           <div className="flex flex-col items-center text-center p-6">
